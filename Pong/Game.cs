@@ -12,6 +12,8 @@ namespace Pong
     public class Game
     {
         public bool WindowShouldClose => Raylib.WindowShouldClose();
+        private readonly Padel _leftPadel = new Padel(new Vector2(100, 100), KeyboardKey.KEY_W, KeyboardKey.KEY_S, Color.DARKGREEN); 
+        private readonly Padel _rightPadel = new Padel(new Vector2(1480, 100), KeyboardKey.KEY_UP, KeyboardKey.KEY_DOWN, Color.RED); 
 
         public Game(Vector2 size, int fps, string title)
         {
@@ -30,12 +32,14 @@ namespace Pong
 
         private void Update()
         {
-
+            _leftPadel.Update();
+            _rightPadel.Update();
         }
 
         private void Draw()
         {
-            
+            _leftPadel.Draw();
+            _rightPadel.Draw();
         }
     }
 }
